@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: {{gitops.Name}}
+        version: beta-{{gitops.Version}}
     spec:
       containers:
         - name: app
@@ -38,6 +39,7 @@ spec:
               protocol: TCP
 
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -52,3 +54,22 @@ spec:
       name: http
   selector:
     app: {{gitops.Name}}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{gitops.Name}}-np
+  namespace: {{gitops.Namespace}}
+  labels:
+    app: {{gitops.Name}}
+
+spec:
+  type: NodePort
+  selector:
+    app: {{gitops.Name}}
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 32080
