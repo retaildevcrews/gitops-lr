@@ -4,4 +4,6 @@
     "imageName": "ghcr.io/retaildevcrews/ngsa-lr",
     "imageTag": "beta",
     "targets": ["azure"]
+
+    // valid targets ["azure", "do", "gcp"]
 }
