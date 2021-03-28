@@ -1,7 +1,7 @@
 {
     "name": "loderunner",
     "namespace": "ngsa",
-    "imagename": "ghcr.io/retaildevcrews/ngsa-lr",
-    "imagetag": "beta",
+    "imageName": "ghcr.io/retaildevcrews/ngsa-lr",
+    "imageTag": "beta",
     "targets": ["azure", "do", "gcp"]
 }
