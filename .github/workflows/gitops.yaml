@@ -34,8 +34,12 @@ jobs:
         git clone https://${{ secrets.GHCR_ID }}:${{ secrets.GHCR_PAT }}@github.com/retaildevcrews/gitops
         cd gitops
         dotnet run -p src
-        git pull
-        date >> runlog
-        git add .
-        git commit -am "gitops LodeRunner deployment"
-        git push
+
+        if [[ $(git status -s) ]]; then
+          git pull
+          git status
+          git diff
+          git add .
+          git commit -am "gitops LodeRunner deployment"
+          git push
+        fi
