@@ -3,6 +3,6 @@ namespace: ngsa
 imagename: ghcr.io/retaildevcrews/ngsa-lr
 imagetag: beta
 targets:
-#  - azure
-#  - do
-#  - gcp
+  - azure
+  - do
+  - gcp
